@@ -32,7 +32,8 @@ class Example(QMainWindow, Ui_MainWindow):
     def draw_circle(self, qp):
         random_color = QColor(randrange(256), randrange(256), randrange(256))
         qp.setBrush(random_color)
-        qp.setPen(QPen(Qt.yellow, 1, Qt.SolidLine))
+        pen = QPen(Qt.yellow, 1, Qt.SolidLine)
+        qp.setPen(pen)
         radius = randrange(50, 100)
         qp.drawEllipse(100, 100, radius, radius)
 
