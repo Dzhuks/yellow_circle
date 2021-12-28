@@ -4,6 +4,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from yellow_circle import Ui_MainWindow
 from PyQt5.QtGui import QPainter, QPen, QColor
+from random import randrange
 
 
 class Example(QMainWindow, Ui_MainWindow):
@@ -29,9 +30,11 @@ class Example(QMainWindow, Ui_MainWindow):
         self.do_paint = False
 
     def draw_circle(self, qp):
-        qp.setBrush(QColor(255, 255, 0))
+        random_color = QColor(randrange(256), randrange(256), randrange(256))
+        qp.setBrush(random_color)
         qp.setPen(QPen(Qt.yellow, 1, Qt.SolidLine))
-        qp.drawEllipse(100, 100, 100, 100)
+        radius = randrange(50, 100)
+        qp.drawEllipse(100, 100, radius, radius)
 
 
 if __name__ == '__main__':
